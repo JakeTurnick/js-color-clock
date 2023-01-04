@@ -29,5 +29,15 @@ function tellTime() {
     const tFactor = 100/60;
     let percent = sec * tFactor;
     console.log(`${percent.toFixed(2)}% to next minute`);
+    //Changes time bar size & color to reflect % to next minute
     bar[0].style.width = `${percent*2}px`;
+    if (percent < 25) {
+        bar[0].style.backgroundColor = 'white';
+    } else if (percent > 25 && percent < 50) {
+        bar[0].style.backgroundColor = 'lawngreen';
+    } else if (percent > 50 && percent < 75) {
+        bar[0].style.backgroundColor = 'yellow';
+    } else if (percent > 75) {
+        bar[0].style.backgroundColor = 'crimson';
+    }
 }
