@@ -1,12 +1,9 @@
-const clock = document.getElementsByClassName("clock-display")
-
+const clock = document.getElementsByClassName("clock-display");
+const bar = document.getElementsByClassName("clock-progress-bar");
 
 console.log(tellTime());
 
-
 setInterval(tellTime, 1000);
-
-
 
 //Pulls new date and gets time
 function tellTime() {
@@ -28,8 +25,9 @@ function tellTime() {
     //log time to console & change HTML to display time
     console.log(`${hrs}:${min}:${sec}`);
     clock[0].innerHTML = (`${hrs}:${min}:${sec}`);
+    //Track % to next minute
     const tFactor = 100/60;
     let percent = sec * tFactor;
-    console.log(`${percent.toFixed(2)}% to next minute`)
-
+    console.log(`${percent.toFixed(2)}% to next minute`);
+    bar[0].style.width = `${percent*2}px`;
 }
