@@ -1,11 +1,15 @@
 const clock = document.getElementsByClassName("clock-display")
-console.log(getTime());
 
-setInterval(getTime, 1000);
+
+console.log(tellTime());
+
+
+setInterval(tellTime, 1000);
+
 
 
 //Pulls new date and gets time
-function getTime() {
+function tellTime() {
     let now = new Date;
     let hrs = now.getHours();
     let min = now.getMinutes();
@@ -13,7 +17,10 @@ function getTime() {
     if (sec < 10) {
         sec = "0" + sec;
     }
+    if (min < 10) {
+        min = "0" + min;
+    }
     console.log(`${hrs}:${min}:${sec}`);
-    return (`${hrs}:${min}:${sec}`);
+    clock[0].innerHTML = (`${hrs}:${min}:${sec}`);
 }
 
