@@ -61,9 +61,13 @@
 			bar[0].style.backgroundColor = "crimson";
 		}
 
-		console.log("TotalTime:", totalTime);
+		console.log("Time:", `${hrs}:${min}:${sec}`);
 		let hueTime = Math.round(totalTime * 2.5);
-		console.log("hueTime:", hueTime);
+		// console.log("hueTime:", hueTime);
+		let hexTime = sec.toString(16);
+		let totalHex = totalTime.toString(16);
+		console.log("Hex time: ", hexTime);
 		face[0].style.backgroundColor = `hsl(${hueTime}, 80%, 50%)`;
+		console.log("\n");
 	}
 })();
